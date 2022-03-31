@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CardView: View {
 	
-	@State var showPDF = false
 	@State var name = ""
 	@State var occupation = ""
 	@State private var showSheet: Bool = false
@@ -19,8 +18,6 @@ struct CardView: View {
     @State private var email = ""
     @State private var phonenumber = ""
 	
-	
-	@State var showingExporter = false
 	
     @State var pdfData: Data?
     
@@ -90,69 +87,32 @@ struct CardView: View {
 					}
 					.foregroundColor(Color(uiColor: .systemBlue))
 				
-				Button {
+                    NavigationLink {
+                        let pdfCreator = PDFCreator(name: name,
+                                                    userPhoto: image ?? UIImage(named: "UserPicture")!,
+                                                    ocupation: occupation,
+                                                    email: email,
+                                                    phoneNumber: phonenumber)
+                        
+                        PDFPreview(PDF: pdfCreator)
+                    } label: {
+                        Text("See PDF")
+                            .fontWeight(.medium)
+                            .font(.system(size: 18))
+                    }
+                
 //                    let pdfCreator = PDFCreator(name: name,
 //                                                userPhoto: image ?? UIImage(named: "UserPicture")!,
 //                                                ocupation: occupation,
 //                                                email: email,
 //                                                phoneNumber: phonenumber)
 //                    pdfData = pdfCreator.createFlyer()
-                    showPDF = true
-				} label: {
-					Text("Show PDF")
-						.fontWeight(.medium)
-						.font(.system(size: 18))
-				}
+//                    showPDF = true
+	
 				.frame(width: 140, height: 40)
 				.foregroundColor(Color.white)
 				.background(Color(uiColor: .systemBlue))
 				.clipShape(RoundedRectangle(cornerRadius: 12.0))
-				.sheet(isPresented: $showPDF) {
-                    let pdfCreator = PDFCreator(name: name,
-                                                userPhoto: image ?? UIImage(named: "UserPicture")!,
-                                                ocupation: occupation,
-                                                email: email,
-                                                phoneNumber: phonenumber)
-                    
-                    if let data = pdfCreator.createFlyer() {
-						NavigationView {
-							PDFPresenter(data: data)
-								.ignoresSafeArea(.container, edges: .bottom)
-							
-								.toolbar {
-									ToolbarItem(placement: .bottomBar) {
-										Spacer()
-									}
-									ToolbarItem(placement: .bottomBar) {
-										Button {
-											self.showPDF = false
-											
-											showingExporter.toggle()
-										} label: {
-											Image(systemName: "square.and.arrow.up")
-										}
-									}
-									ToolbarItem(placement: .navigationBarLeading) {
-										Button {
-											self.showPDF = false
-											
-										} label: {
-											Image(systemName: "arrow.backward")
-										}
-									}
-						}
-						
-					}
-                        .onAppear { print(data) }
-                    }
-				}
-				.sheet(isPresented: $showingExporter) {
-					let pdfCreator = PDFCreator(name: name, userPhoto: image ?? UIImage(named: "UserPicture")!, ocupation: occupation, email: email, phoneNumber: phonenumber)
-					if let data = pdfCreator.createFlyer() {
-						ShareSheet(activityItems: [data])
-					}
-				}
-				
 				
 			}
 			.navigationTitle("Business Card")
