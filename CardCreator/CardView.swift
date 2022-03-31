@@ -18,6 +18,8 @@ struct CardView: View {
 	@State private var sourceType: UIImagePickerController.SourceType = .camera
 	@State private var image: UIImage?
 	
+	@State var showingExporter = false
+	
 	
 	var body: some View {
 		
@@ -84,10 +86,45 @@ struct CardView: View {
 				.sheet(isPresented: $showPDF) {
                     let pdfCreator = PDFCreator(name: name, userPhoto: image ?? UIImage(named: "UserPicture")!, ocupation: occupation)
 					if let data = pdfCreator.createFlyer() {
+						NavigationView {
 						PDFPresenter(data: data)
 							.ignoresSafeArea(.container, edges: .bottom)
+							
+							.toolbar {
+														   ToolbarItem(placement: .bottomBar) {
+															   Spacer()
+														   }
+														   ToolbarItem(placement: .bottomBar) {
+															   Button {
+																  //Button Action
+																   self.showPDF = false
+																   showingExporter.toggle()
+															   } label: {
+																  Image(systemName: "square.and.arrow.up")
+															   }
+														   }
+														   ToolbarItem(placement: .navigationBarLeading) {
+															   Button {
+																  //Button Action
+																   self.showPDF = false
+																 
+															   } label: {
+																  Image(systemName: "arrow.backward")
+															   }
+														   }
+							}
+
+						}
+						
 					}
 				}
+				.sheet(isPresented: $showingExporter) {
+					let pdfCreator = PDFCreator(name: name, userPhoto: image ?? UIImage(named: "UserPicture")!, ocupation: occupation)
+											if let data = pdfCreator.createFlyer() {
+												ShareSheet(activityItems: [data])
+											}
+				}
+			
 				
 			}
 						.navigationTitle("Business Card")

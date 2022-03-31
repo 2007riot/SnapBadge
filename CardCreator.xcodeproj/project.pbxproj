@@ -12,6 +12,7 @@
 		5C4B471627F45E99003584E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C4B471527F45E99003584E5 /* Preview Assets.xcassets */; };
 		5C4B471D27F45EB6003584E5 /* PDFPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4B471C27F45EB6003584E5 /* PDFPresenter.swift */; };
 		5C4B472527F470A7003584E5 /* PDFCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4B472427F470A7003584E5 /* PDFCreator.swift */; };
+		71A6432A27F5DDA500538D4D /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6432927F5DDA500538D4D /* ShareSheet.swift */; };
 		71B382E227F599B500DF1CB0 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B382E127F599B500DF1CB0 /* CardView.swift */; };
 		71B382E527F5A5C700DF1CB0 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B382E427F5A5C700DF1CB0 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
@@ -23,6 +24,7 @@
 		5C4B471527F45E99003584E5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5C4B471C27F45EB6003584E5 /* PDFPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFPresenter.swift; sourceTree = "<group>"; };
 		5C4B472427F470A7003584E5 /* PDFCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFCreator.swift; sourceTree = "<group>"; };
+		71A6432927F5DDA500538D4D /* ShareSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		71B382E127F599B500DF1CB0 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		71B382E427F5A5C700DF1CB0 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,6 +64,7 @@
 				71B382E427F5A5C700DF1CB0 /* ImagePicker.swift */,
 				5C4B472427F470A7003584E5 /* PDFCreator.swift */,
 				5C4B471C27F45EB6003584E5 /* PDFPresenter.swift */,
+				71A6432927F5DDA500538D4D /* ShareSheet.swift */,
 				5C4B471227F45E99003584E5 /* Assets.xcassets */,
 				5C4B471427F45E99003584E5 /* Preview Content */,
 			);
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C4B472527F470A7003584E5 /* PDFCreator.swift in Sources */,
+				71A6432A27F5DDA500538D4D /* ShareSheet.swift in Sources */,
 				5C4B470F27F45E97003584E5 /* CardCreatorApp.swift in Sources */,
 				71B382E527F5A5C700DF1CB0 /* ImagePicker.swift in Sources */,
 				5C4B471D27F45EB6003584E5 /* PDFPresenter.swift in Sources */,
