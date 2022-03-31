@@ -16,7 +16,7 @@ struct PDFPresenter: UIViewRepresentable {
         let pdfview = PDFView()
         let document = PDFDocument(data: data)
         pdfview.document = document
-        pdfview.autoScales = false
+        pdfview.autoScales = true
         
         
 

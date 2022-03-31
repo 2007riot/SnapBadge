@@ -44,7 +44,7 @@ struct CardView: View {
 				.clipShape(RoundedRectangle(cornerRadius: 12.0))
 				.padding()
 				.sheet(isPresented: $showPDF) {
-					let pdfCreator = PDFCreator(title: card.name)
+                    let pdfCreator = PDFCreator(title: card.name, userPhoto: UIImage(named: "UserPicture")!)
 					if let data = pdfCreator.createFlyer() {
 						PDFPresenter(data: data)
 					}

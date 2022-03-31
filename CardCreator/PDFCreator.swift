@@ -14,13 +14,15 @@ class PDFCreator {
     let title: String
     let image = UIImage(named: "backgroundImage")
     let userPhoto: UIImage
+    let surname: String
 //    let body: String
 //    let image: UIImage
 //    let contactInfo: String
 
-    init(title: String, userPhoto: UIImage) {
+    init(title: String, userPhoto: UIImage, surname: String) {
       self.title = title
         self.userPhoto = userPhoto
+        self.surname = surname
 //      self.body = body
 //      self.image = image
 //      self.contactInfo = contact
@@ -38,7 +40,7 @@ class PDFCreator {
       format.documentInfo = pdfMetaData as [String: Any]
 
       // setting the pdf doc size, remembering it use 72 points per inch
-      let pageWidth = 3.5 * 72.0
+        let pageWidth = 3.5 * 72.0
       let pageHeight = 2 * 72.0
       let pageRect = CGRect(x: 0, y: 0, width: pageWidth, height: pageHeight)
 
@@ -125,20 +127,37 @@ class PDFCreator {
         
         let aspectWidth = maxWidth / userPhoto.size.width
         let aspectHeight = maxHeight / userPhoto.size.height
+        
+        
         let aspectRatio = min(aspectWidth, aspectHeight)
         
         let scaledWidth = userPhoto.size.width * aspectRatio
         let scaledHeight = userPhoto.size.height * aspectRatio
         
         //let photoX = (pageRect.width - scaledWidth) / 2.0
-        let photoX = 16
-        let photoRect = CGRect(x: CGFloat(photoX), y: 36,
+        
+        
+        let photoRect = CGRect(x: 16, y: 36,
                                  width: scaledWidth, height: scaledHeight)
         
+        
+        
         userPhoto.draw(in: photoRect)
+       // userPhoto.addEllipse(self: CGContext, in: photoRect)
         
         return photoRect.origin.y + photoRect.size.height
     }
+    
+//    func addSurname (pageRect: CGRect) -> CGFloat {
+//        let surnameFont = UIFont.systemFont(ofSize: 10, weight: .regular)
+//        
+//        let surnameAttributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: surnameFont]
+//        
+////        let surnameAttributes = NSAttributedString(
+////        string: surname,
+////        attributes: surnameAttributes
+////        )
+//    }
 
     
 }
