@@ -12,11 +12,26 @@ struct CardView: View {
 	@StateObject var card = PDFData()
 	@State var showPDF = false
 	
+	@State private var showSheet: Bool = false
+	@State private var showImagePicker: Bool = false
+	@State private var sourceType: UIImagePickerController.SourceType = .camera
+	@State private var image: UIImage?
+	
 	
 	var body: some View {
 		
-		NavigationView{
-			VStack {
+		NavigationView {
+			ScrollView {
+				if let image = image ?? UIImage(named: "UserPicture") {
+					Image(uiImage: image)
+						.resizable()
+						.scaledToFill()
+						.frame(width: 250, height: 250)
+						.clipShape(Circle())
+						.shadow(radius: 10)
+						.overlay(Circle().stroke(Color(uiColor: .systemGray), lineWidth: 0.3))
+				}
+				Group{
 				HStack {
 					Text("Name")
 						.fontWeight(.medium)
@@ -24,6 +39,7 @@ struct CardView: View {
 				}
 				TextField("Type name ...", text: $card.name)
 					.textFieldStyle(.roundedBorder)
+				
 				HStack {
 					Text("Surname")
 						.fontWeight(.medium)
@@ -31,6 +47,28 @@ struct CardView: View {
 				}
 				TextField("Type surname ...", text: $card.surname)
 					.textFieldStyle(.roundedBorder)
+				}.padding(.horizontal)
+				
+				Button("Choose Picture") {
+					self.showSheet = true
+				}.padding()
+					.actionSheet(isPresented: $showSheet) {
+						ActionSheet(title: Text("Select Photo"), message: Text("Choose"), buttons: [
+							.default(Text("Photo Library")) {
+								self.showImagePicker = true
+								self.sourceType = .photoLibrary
+								//adesso credo che qua devo performare l'azione del machine learning e passargli l'immagine che sta qua
+							},
+							.default(Text("Camera")) {
+								self.showImagePicker = true
+								self.sourceType = .camera
+								//adesso credo che qua devo performare l'azione del machine learning e passargli l'immagine che sta qua
+							},
+							.cancel()
+						])
+				}
+					.foregroundColor(Color(uiColor: .systemBlue))
+				
 				Button{
 					showPDF.toggle()
 				} label: {
@@ -42,17 +80,20 @@ struct CardView: View {
 				.foregroundColor(Color.white)
 				.background(Color(uiColor: .systemBlue))
 				.clipShape(RoundedRectangle(cornerRadius: 12.0))
-				.padding()
 				.sheet(isPresented: $showPDF) {
-                    let pdfCreator = PDFCreator(title: card.name, userPhoto: UIImage(named: "UserPicture")!)
+					let pdfCreator = PDFCreator(title: card.name, userPhoto: image ?? UIImage(named: "UserPicture")!)
 					if let data = pdfCreator.createFlyer() {
 						PDFPresenter(data: data)
+							.ignoresSafeArea(.container, edges: .bottom)
 					}
 				}
 				
 			}
-			.padding()
-			.navigationTitle("Business Card")
+						.navigationTitle("Business Card")
+		}
+		.fullScreenCover(isPresented: $showImagePicker) {
+			ImagePicker(image: $image, isShown: $showImagePicker, sourceType: sourceType)
+				.ignoresSafeArea(.container, edges: .vertical)
 		}
 	}
 }
