@@ -11,7 +11,7 @@ import UIKit
 
 class PDFCreator {
 
-    let title: String
+    let name: String
     let image = UIImage(named: "backgroundImage")
     let userPhoto: UIImage
     let ocupation: String
@@ -19,8 +19,8 @@ class PDFCreator {
 //    let image: UIImage
 //    let contactInfo: String
 
-    init(title: String, userPhoto: UIImage, ocupation: String) {
-      self.title = title
+    init(name: String, userPhoto: UIImage, ocupation: String) {
+      self.name = name
         self.userPhoto = userPhoto
         self.ocupation = ocupation
 //      self.body = body
@@ -33,7 +33,7 @@ class PDFCreator {
       let pdfMetaData = [
         kCGPDFContextCreator: "Card Builder",
         kCGPDFContextAuthor: "Fatal Error() team",
-        kCGPDFContextTitle: title
+        kCGPDFContextTitle: name
       ]
       //setting metadata
       let format = UIGraphicsPDFRendererFormat()
@@ -50,14 +50,9 @@ class PDFCreator {
       let data = renderer.pdfData { (context) in
         // 5
         context.beginPage()
-  //      // 6
-  //      let attributes = [
-  //        NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 72)
-  //      ]
-  //      let text = "Ураааа!"
-  //      text.draw(at: CGPoint(x: 0, y: 0), withAttributes: attributes)
+  
         let titleBottom = addTitle(pageRect: pageRect)
-//        let imageBottom = addImage(pageRect: pageRect, imageTop: titleBottom + 18.0)
+          let jobPlacement = addJob(pageRect: pageRect, textTop: titleBottom)
         let photoLeft = addUserPhoto(pageRect: pageRect, imageTop: titleBottom + 30)
        
 
@@ -74,7 +69,7 @@ class PDFCreator {
         [NSAttributedString.Key.font: titleFont]
       // 3
       let attributedTitle = NSAttributedString(
-        string: title,
+        string: name,
         attributes: titleAttributes
       )
       
@@ -148,15 +143,29 @@ class PDFCreator {
         return photoRect.origin.y + photoRect.size.height
     }
     
-    func addJob (pageRect: CGRect) -> CGFloat {
-        let surnameFont = UIFont.systemFont(ofSize: 10, weight: .regular)
+    func addJob (pageRect: CGRect, textTop: CGFloat) -> CGFloat {
+        let jobFont = UIFont.systemFont(ofSize: 10, weight: .regular)
         
-        let surnameAttributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: surnameFont]
+        let jobAttributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: jobFont]
         
-//        let surnameAttributes = NSAttributedString(
-//        string: surname,
-//        attributes: surnameAttributes
-//        )
+        let attributedJob = NSAttributedString(
+    string: ocupation,
+    attributes: jobAttributes
+  )
+        let jobStringSize = attributedJob.size()
+        
+        let jobStringRect = CGRect(
+            x: 95,
+            y: 71,
+            width: jobStringSize.width,
+            height: jobStringSize.height
+          )
+          // 6
+          attributedJob.draw(in: jobStringRect)
+          // 7
+          return jobStringRect.origin.y + jobStringRect.size.height
+        
+        
     }
 
     

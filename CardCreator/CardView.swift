@@ -41,11 +41,11 @@ struct CardView: View {
 					.textFieldStyle(.roundedBorder)
 				
 				HStack {
-					Text("Surname")
+					Text("Occupation")
 						.fontWeight(.medium)
 					Spacer()
 				}
-				TextField("Type surname ...", text: $card.surname)
+				TextField("Type surname ...", text: $card.ocupation)
 					.textFieldStyle(.roundedBorder)
 				}.padding(.horizontal)
 				
@@ -81,7 +81,7 @@ struct CardView: View {
 				.background(Color(uiColor: .systemBlue))
 				.clipShape(RoundedRectangle(cornerRadius: 12.0))
 				.sheet(isPresented: $showPDF) {
-					let pdfCreator = PDFCreator(title: card.name, userPhoto: image ?? UIImage(named: "UserPicture")!)
+                    let pdfCreator = PDFCreator(name: card.name, userPhoto: image ?? UIImage(named: "UserPicture")!, ocupation: card.ocupation)
 					if let data = pdfCreator.createFlyer() {
 						PDFPresenter(data: data)
 							.ignoresSafeArea(.container, edges: .bottom)

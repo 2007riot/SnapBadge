@@ -8,6 +8,6 @@
 import Foundation
 class PDFData: ObservableObject {
     @Published var name: String = ""
-	@Published var surname: String = ""
+	@Published var ocupation: String = ""
     
 }
