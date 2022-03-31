@@ -13,7 +13,7 @@ class PDFCreator {
 
     let name: String
     let image = UIImage(named: "backgroundImage")
-    let userPhoto: UIImage
+    var userPhoto: UIImage
     let ocupation: String
     let email: String
     let phoneNumber: String
@@ -54,11 +54,11 @@ class PDFCreator {
         context.beginPage()
   
           let name = addText(text: name, pageRect: pageRect, fontWeight: .bold, fontSize: 14, xPosition: 95, yPosition: 48)
-          addText(text: ocupation, pageRect: pageRect, fontWeight: .regular, fontSize: 10, xPosition: 95, yPosition: 71)
-          addText(text: email, pageRect: pageRect, fontWeight: .regular, fontSize: 6, xPosition: 95, yPosition: 89)
-          addText(text: phoneNumber, pageRect: pageRect, fontWeight: .regular, fontSize: 6, xPosition: 95, yPosition: 102)
-        addUserPhoto(pageRect: pageRect, imageTop: name + 30)
-       
+          addText(text: ocupation, pageRect: pageRect, fontWeight: .regular, fontSize: 10, xPosition: 95, yPosition: 65)
+          addText(text: email, pageRect: pageRect, fontWeight: .regular, fontSize: 6, xPosition: 95, yPosition: 78)
+          addText(text: phoneNumber, pageRect: pageRect, fontWeight: .regular, fontSize: 6, xPosition: 95, yPosition: 86)
+          addUserPhoto(pageRect: pageRect, imageTop: name + 50, xPosition: 16, yPosition: 42)
+          addImageWithoutScaling(image: createCircle(), pageRect: pageRect, xPosition: 16, yPosition: 42)
 
       }
 
@@ -66,7 +66,7 @@ class PDFCreator {
     }
     
     
-    func addImage(pageRect: CGRect, imageTop: CGFloat) -> CGFloat {
+    func addImage(pageRect: CGRect, imageTop: CGFloat)  {
       
      let maxHeight = pageRect.height
       let maxWidth = pageRect.width
@@ -84,25 +84,60 @@ class PDFCreator {
                              width: scaledWidth, height: scaledHeight)
       // 5
       imageUnwrapped.draw(in: imageRect)
-            return imageRect.origin.y + imageRect.size.height
+        //imageUnwrapped.draw(in: T##CGRect)
+        
+            //return imageRect.origin.y + imageRect.size.height
         } else {
             print("No image found")
-            return 0
+           // return 0
         }
-      
+        
+        
+    }
+    func createCircle() -> UIImage {
+        let renderer = UIGraphicsImageRenderer(size: CGSize(width: 60, height: 60))
+        let rectangle = CGRect(x: 0, y: 0, width: 60, height: 60)
+        let img = renderer.image { (context) in
+            UIColor.green.setStroke()
+//            context.stroke(renderer.format.bounds)
+              //UIColor(colorLiteralRed: 158/255, green: 215/255, blue: 245/255, alpha: 1).setFill()
+             // context.fill(CGRect(x: 1, y: 1, width: 140, height: 140))
+            
+            
+            context.cgContext.addEllipse(in: rectangle)
+            context.cgContext.drawPath(using: .stroke)
+            
+           // context.fill(rectangle)
+           // userPhoto.draw(in: rectangle, blendMode: .darken, alpha: 1)
+            
+        }
+        
+        return img
     }
     
-    func addUserPhoto (pageRect: CGRect, imageTop: CGFloat) -> CGFloat {
-        //let maxHeight = pageRect.height * 0.4
-        let maxHeight = CGFloat (60)
-        //let maxWidth = pageRect.width * 0.23
-        let maxWidth = CGFloat (60)
+    func addImageWithoutScaling (image: UIImage, pageRect: CGRect, xPosition: CGFloat, yPosition: CGFloat) {
+        let rectangle = CGRect(x: xPosition, y: yPosition,
+                               width: image.size.width, height: image.size.height)
         
+        image.draw(in: rectangle)
+    }
+    
+    func addUserPhoto (pageRect: CGRect, imageTop: CGFloat, xPosition: CGFloat, yPosition: CGFloat) -> CGFloat {
+        
+        //let maxHeight = pageRect.height * 0.4
+        let maxHeight = pageRect.height * 0.4
+        //let maxWidth = pageRect.width * 0.23
+        let maxWidth = pageRect.width * 0.23
+        
+        //let aspectWidth = maxWidth / userPhoto.size.width
         let aspectWidth = maxWidth / userPhoto.size.width
+        //let aspectHeight = maxHeight / userPhoto.size.height
         let aspectHeight = maxHeight / userPhoto.size.height
         
-        
         let aspectRatio = min(aspectWidth, aspectHeight)
+        
+       // let scaledWidth = userPhoto.size.width * aspectRatio
+        //let scaledHeight = userPhoto.size.height * aspectRatio
         
         let scaledWidth = userPhoto.size.width * aspectRatio
         let scaledHeight = userPhoto.size.height * aspectRatio
@@ -110,7 +145,7 @@ class PDFCreator {
         //let photoX = (pageRect.width - scaledWidth) / 2.0
         
         
-        let photoRect = CGRect(x: 16, y: 30,
+        let photoRect = CGRect(x: xPosition, y: yPosition,
                                  width: scaledWidth, height: scaledHeight)
         
         

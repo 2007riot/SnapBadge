@@ -37,10 +37,10 @@ struct CardView: View {
 							self.showSheet = true
 						}
 				}
-				Group{
+				Group {
 					Button("Choose Picture") {
 						self.showSheet = true
-					}.padding(5)
+					} .padding(5)
 						.actionSheet(isPresented: $showSheet) {
 							ActionSheet(title: Text("Select Photo"), message: Text("Choose"), buttons: [
 								.default(Text("Photo Library")) {
@@ -56,20 +56,22 @@ struct CardView: View {
 							])
 						}
 						.foregroundColor(Color(uiColor: .systemBlue))
+                   
 					HStack {
 						Text("Name and Surname")
 							.fontWeight(.medium)
 						Spacer()
 					}
-					TextField("Type name ...", text: $name)
+                    
+					TextField("Enter name and surname", text: $name)
 						.textFieldStyle(.roundedBorder)
 					
 					HStack {
-						Text("Occupation")
+						Text("Job Title")
 							.fontWeight(.medium)
 						Spacer()
 					}
-					TextField("Type occupation ...", text: $occupation)
+					TextField("Enter job title", text: $occupation)
 						.textFieldStyle(.roundedBorder)
 					
 					HStack {
@@ -77,15 +79,15 @@ struct CardView: View {
 							.fontWeight(.medium)
 						Spacer()
 					}
-					TextField("Type email ...", text: $email)
+					TextField("Enter email", text: $email)
 						.textFieldStyle(.roundedBorder)
 					
 					HStack {
-						Text("Phonenumber")
+						Text("Contact number")
 							.fontWeight(.medium)
 						Spacer()
 					}
-					TextField("Type number ...", text: $phonenumber)
+					TextField("Enter contact number", text: $phonenumber)
 						.textFieldStyle(.roundedBorder)
 				}.padding(.horizontal)
 				
