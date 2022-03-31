@@ -42,20 +42,26 @@ class PDFCreator {
       format.documentInfo = pdfMetaData as [String: Any]
 
       // setting the pdf doc size, remembering it use 72 points per inch
-        let pageWidth = 3.5 * 72.0
+      let pageWidth = 3.5 * 72.0
       let pageHeight = 2 * 72.0
       let pageRect = CGRect(x: 0, y: 0, width: pageWidth, height: pageHeight)
 
       // creating a pdfRenderer with the dimensions of the rectangle and the format containing the metadata.
       let renderer = UIGraphicsPDFRenderer(bounds: pageRect, format: format)
       // The renderer creates a Core Graphics context that becomes the current context within the block. Drawing done on this context will appear on the PDF.
+        
       let data = renderer.pdfData { (context) in
         // 5
         context.beginPage()
   
-        let titleBottom = addTitle(pageRect: pageRect)
-          let jobPlacement = addJob(pageRect: pageRect, textTop: titleBottom)
-        let photoLeft = addUserPhoto(pageRect: pageRect, imageTop: titleBottom + 30)
+        //let titleBottom = addTitle(pageRect: pageRect)
+        //let jobPlacement = addJob(pageRect: pageRect, textTop: titleBottom)
+         
+          let name = addText(text: name, pageRect: pageRect, fontWeight: .bold, fontSize: 14, xPosition: 95, yPosition: 48)
+          let job = addText(text: ocupation, pageRect: pageRect, fontWeight: .regular, fontSize: 10, xPosition: 95, yPosition: 71)
+          let mail = addText(text: email, pageRect: pageRect, fontWeight: .regular, fontSize: 6, xPosition: 95, yPosition: 89)
+          let phone = addText(text: phoneNumber, pageRect: pageRect, fontWeight: .regular, fontSize: 6, xPosition: 95, yPosition: 102)
+        let photoLeft = addUserPhoto(pageRect: pageRect, imageTop: name + 30)
        
 
       }
@@ -63,32 +69,6 @@ class PDFCreator {
       return data
     }
     
-    func addTitle(pageRect: CGRect) -> CGFloat {
-      
-        let titleFont = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
-      // 2
-      let titleAttributes: [NSAttributedString.Key: Any] =
-        [NSAttributedString.Key.font: titleFont]
-      // 3
-      let attributedTitle = NSAttributedString(
-        string: name,
-        attributes: titleAttributes
-      )
-      
-      let titleStringSize = attributedTitle.size()
-        // create rectangle
-      let titleStringRect = CGRect(
-        //x: (pageRect.width - titleStringSize.width) / 2.0,
-        x: 95,
-        y: 48,
-        width: titleStringSize.width,
-        height: titleStringSize.height
-      )
-      // 6
-      attributedTitle.draw(in: titleStringRect)
-      // 7
-      return titleStringRect.origin.y + titleStringRect.size.height
-    }
     
     func addImage(pageRect: CGRect, imageTop: CGFloat) -> CGFloat {
       
@@ -145,30 +125,30 @@ class PDFCreator {
         return photoRect.origin.y + photoRect.size.height
     }
     
-    func addJob (pageRect: CGRect, textTop: CGFloat) -> CGFloat {
-        let jobFont = UIFont.systemFont(ofSize: 10, weight: .regular)
-        
-        let jobAttributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: jobFont]
-        
-        let attributedJob = NSAttributedString(
-    string: ocupation,
-    attributes: jobAttributes
-  )
-        let jobStringSize = attributedJob.size()
-        
-        let jobStringRect = CGRect(
-            x: 95,
-            y: 71,
-            width: jobStringSize.width,
-            height: jobStringSize.height
-          )
-          // 6
-          attributedJob.draw(in: jobStringRect)
-          // 7
-          return jobStringRect.origin.y + jobStringRect.size.height
-        
-        
-    }
-
     
+    func addText(text: String, pageRect: CGRect, fontWeight: UIFont.Weight, fontSize: CGFloat, xPosition: CGFloat, yPosition: CGFloat) -> CGFloat {
+        
+        let font = UIFont.systemFont(ofSize: fontSize, weight: fontWeight)
+        
+        let attributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: font]
+        
+        let attributedString = NSAttributedString(
+            string: text,
+            attributes: attributes
+        )
+        
+        let stringSize = attributedString.size()
+        
+        let stringRect = CGRect(
+            x: xPosition,
+            y: yPosition,
+            width: stringSize.width,
+            height: stringSize.height
+          )
+        
+        attributedString.draw(in: stringRect)
+        
+        return stringRect.origin.y + stringRect.size.height
+    }
 }
+
