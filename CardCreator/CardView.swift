@@ -19,6 +19,7 @@ struct CardView: View {
     @State private var email = ""
     @State private var phonenumber = ""
 	
+	
 	@State var showingExporter = false
 	
     @State var pdfData: Data?
@@ -38,7 +39,7 @@ struct CardView: View {
 				}
 				Group{
 					HStack {
-						Text("Name")
+						Text("Name and Surname")
 							.fontWeight(.medium)
 						Spacer()
 					}
@@ -50,7 +51,23 @@ struct CardView: View {
 							.fontWeight(.medium)
 						Spacer()
 					}
-					TextField("Type surname ...", text: $occupation)
+					TextField("Type occupation ...", text: $occupation)
+						.textFieldStyle(.roundedBorder)
+					
+					HStack {
+						Text("Email")
+							.fontWeight(.medium)
+						Spacer()
+					}
+					TextField("Type email ...", text: $email)
+						.textFieldStyle(.roundedBorder)
+					
+					HStack {
+						Text("Phonenumber")
+							.fontWeight(.medium)
+						Spacer()
+					}
+					TextField("Type number ...", text: $phonenumber)
 						.textFieldStyle(.roundedBorder)
 				}.padding(.horizontal)
 				
@@ -109,6 +126,7 @@ struct CardView: View {
 									ToolbarItem(placement: .bottomBar) {
 										Button {
 											self.showPDF = false
+											
 											showingExporter.toggle()
 										} label: {
 											Image(systemName: "square.and.arrow.up")
