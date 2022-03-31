@@ -7,6 +7,7 @@
 
 import Foundation
 class PDFData: ObservableObject {
-    var name: String = ""
+    @Published var name: String = ""
+	@Published var surname: String = ""
     
 }
