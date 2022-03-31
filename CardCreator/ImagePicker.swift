@@ -1,9 +1,8 @@
 //
 //  ImagePicker.swift
-//  SwiftUICamera
+//  CardCreator
 //
-//  Created by Mohammad Azam on 2/10/20.
-//  Copyright © 2020 Mohammad Azam. All rights reserved.
+//  Created by Antonio Scognamiglio on 31/03/22.
 //
 
 import Foundation
