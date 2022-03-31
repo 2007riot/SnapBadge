@@ -9,9 +9,10 @@ import SwiftUI
 
 struct CardView: View {
 	
-	@StateObject var card = PDFData()
+	//@StateObject var card = PDFData()
 	@State var showPDF = false
-	
+	@State var name = ""
+    @State var occupation = ""
 	@State private var showSheet: Bool = false
 	@State private var showImagePicker: Bool = false
 	@State private var sourceType: UIImagePickerController.SourceType = .camera
@@ -37,7 +38,7 @@ struct CardView: View {
 						.fontWeight(.medium)
 					Spacer()
 				}
-				TextField("Type name ...", text: $card.name)
+				TextField("Type name ...", text: $name)
 					.textFieldStyle(.roundedBorder)
 				
 				HStack {
@@ -45,7 +46,7 @@ struct CardView: View {
 						.fontWeight(.medium)
 					Spacer()
 				}
-				TextField("Type surname ...", text: $card.ocupation)
+				TextField("Type surname ...", text: $occupation)
 					.textFieldStyle(.roundedBorder)
 				}.padding(.horizontal)
 				
@@ -81,7 +82,7 @@ struct CardView: View {
 				.background(Color(uiColor: .systemBlue))
 				.clipShape(RoundedRectangle(cornerRadius: 12.0))
 				.sheet(isPresented: $showPDF) {
-                    let pdfCreator = PDFCreator(name: card.name, userPhoto: image ?? UIImage(named: "UserPicture")!, ocupation: card.ocupation)
+                    let pdfCreator = PDFCreator(name: name, userPhoto: image ?? UIImage(named: "UserPicture")!, ocupation: occupation)
 					if let data = pdfCreator.createFlyer() {
 						PDFPresenter(data: data)
 							.ignoresSafeArea(.container, edges: .bottom)

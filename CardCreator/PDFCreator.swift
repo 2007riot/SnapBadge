@@ -15,6 +15,7 @@ class PDFCreator {
     let image = UIImage(named: "backgroundImage")
     let userPhoto: UIImage
     let ocupation: String
+    
 //    let body: String
 //    let image: UIImage
 //    let contactInfo: String
