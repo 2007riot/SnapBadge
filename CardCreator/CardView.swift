@@ -93,7 +93,7 @@ struct CardView: View {
 				
                     NavigationLink {
                         let pdfCreator = PDFCreator(name: name,
-                                                    userPhoto: image ?? UIImage(named: "UserPicture")!,
+                                                    userPhoto: image ?? UIImage(named: "PlaceHolder2")!,
                                                     ocupation: occupation,
                                                     email: email,
                                                     phoneNumber: phonenumber)
@@ -105,13 +105,6 @@ struct CardView: View {
                             .font(.system(size: 18))
                     }
                 
-//                    let pdfCreator = PDFCreator(name: name,
-//                                                userPhoto: image ?? UIImage(named: "UserPicture")!,
-//                                                ocupation: occupation,
-//                                                email: email,
-//                                                phoneNumber: phonenumber)
-//                    pdfData = pdfCreator.createFlyer()
-//                    showPDF = true
 	
 				.frame(width: 140, height: 40)
 				.foregroundColor(Color.white)
