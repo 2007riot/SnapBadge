@@ -16,10 +16,13 @@ struct CardView: View {
 	@State private var showImagePicker: Bool = false
 	@State private var sourceType: UIImagePickerController.SourceType = .camera
 	@State private var image: UIImage?
+    @State private var email = ""
+    @State private var phonenumber = ""
 	
 	@State var showingExporter = false
 	
-	
+    @State var pdfData: Data?
+    
 	var body: some View {
 		
 		NavigationView {
@@ -70,8 +73,14 @@ struct CardView: View {
 					}
 					.foregroundColor(Color(uiColor: .systemBlue))
 				
-				Button{
-					showPDF.toggle()
+				Button {
+//                    let pdfCreator = PDFCreator(name: name,
+//                                                userPhoto: image ?? UIImage(named: "UserPicture")!,
+//                                                ocupation: occupation,
+//                                                email: email,
+//                                                phoneNumber: phonenumber)
+//                    pdfData = pdfCreator.createFlyer()
+                    showPDF = true
 				} label: {
 					Text("Show PDF")
 						.fontWeight(.medium)
@@ -82,8 +91,13 @@ struct CardView: View {
 				.background(Color(uiColor: .systemBlue))
 				.clipShape(RoundedRectangle(cornerRadius: 12.0))
 				.sheet(isPresented: $showPDF) {
-					let pdfCreator = PDFCreator(name: name, userPhoto: image ?? UIImage(named: "UserPicture")!, ocupation: occupation)
-					if let data = pdfCreator.createFlyer() {
+                    let pdfCreator = PDFCreator(name: name,
+                                                userPhoto: image ?? UIImage(named: "UserPicture")!,
+                                                ocupation: occupation,
+                                                email: email,
+                                                phoneNumber: phonenumber)
+                    
+                    if let data = pdfCreator.createFlyer() {
 						NavigationView {
 							PDFPresenter(data: data)
 								.ignoresSafeArea(.container, edges: .bottom)
@@ -108,14 +122,14 @@ struct CardView: View {
 											Image(systemName: "arrow.backward")
 										}
 									}
-								}
-							
 						}
 						
 					}
+                        .onAppear { print(data) }
+                    }
 				}
 				.sheet(isPresented: $showingExporter) {
-					let pdfCreator = PDFCreator(name: name, userPhoto: image ?? UIImage(named: "UserPicture")!, ocupation: occupation)
+					let pdfCreator = PDFCreator(name: name, userPhoto: image ?? UIImage(named: "UserPicture")!, ocupation: occupation, email: email, phoneNumber: phonenumber)
 					if let data = pdfCreator.createFlyer() {
 						ShareSheet(activityItems: [data])
 					}

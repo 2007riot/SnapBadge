@@ -15,18 +15,19 @@ class PDFCreator {
     let image = UIImage(named: "backgroundImage")
     let userPhoto: UIImage
     let ocupation: String
+    let email: String
+    let phoneNumber: String
     
 //    let body: String
 //    let image: UIImage
 //    let contactInfo: String
 
-    init(name: String, userPhoto: UIImage, ocupation: String) {
+    init(name: String, userPhoto: UIImage, ocupation: String, email: String, phoneNumber: String) {
       self.name = name
         self.userPhoto = userPhoto
         self.ocupation = ocupation
-//      self.body = body
-//      self.image = image
-//      self.contactInfo = contact
+        self.email = email
+        self.phoneNumber = phoneNumber
     }
     
     func createFlyer() -> Data {
