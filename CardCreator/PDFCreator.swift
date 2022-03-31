@@ -33,9 +33,8 @@ class PDFCreator {
     func createFlyer() -> Data {
       // dictionary with the PDF’s metadata using predefined keys.
       let pdfMetaData = [
-        kCGPDFContextCreator: "Card Builder",
-        kCGPDFContextAuthor: "Fatal Error() team",
-        kCGPDFContextTitle: name
+        kCGPDFContextCreator: name,
+        kCGPDFContextAuthor: "Fatal Error() team"
       ]
       //setting metadata
       let format = UIGraphicsPDFRendererFormat()
@@ -51,12 +50,9 @@ class PDFCreator {
       // The renderer creates a Core Graphics context that becomes the current context within the block. Drawing done on this context will appear on the PDF.
         
       let data = renderer.pdfData { (context) in
-        // 5
+        
         context.beginPage()
   
-        //let titleBottom = addTitle(pageRect: pageRect)
-        //let jobPlacement = addJob(pageRect: pageRect, textTop: titleBottom)
-         
           let name = addText(text: name, pageRect: pageRect, fontWeight: .bold, fontSize: 14, xPosition: 95, yPosition: 48)
           let job = addText(text: ocupation, pageRect: pageRect, fontWeight: .regular, fontSize: 10, xPosition: 95, yPosition: 71)
           let mail = addText(text: email, pageRect: pageRect, fontWeight: .regular, fontSize: 6, xPosition: 95, yPosition: 89)
@@ -72,10 +68,10 @@ class PDFCreator {
     
     func addImage(pageRect: CGRect, imageTop: CGFloat) -> CGFloat {
       
-        let maxHeight = pageRect.height
+     let maxHeight = pageRect.height
       let maxWidth = pageRect.width
       // 2
-        if let imageUnwrapped = image {
+    if let imageUnwrapped = image {
       let aspectWidth = maxWidth / imageUnwrapped.size.width
       let aspectHeight = maxHeight / imageUnwrapped.size.height
       let aspectRatio = min(aspectWidth, aspectHeight)
