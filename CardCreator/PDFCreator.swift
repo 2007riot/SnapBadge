@@ -54,10 +54,10 @@ class PDFCreator {
         context.beginPage()
   
           let name = addText(text: name, pageRect: pageRect, fontWeight: .bold, fontSize: 14, xPosition: 95, yPosition: 48)
-          let job = addText(text: ocupation, pageRect: pageRect, fontWeight: .regular, fontSize: 10, xPosition: 95, yPosition: 71)
-          let mail = addText(text: email, pageRect: pageRect, fontWeight: .regular, fontSize: 6, xPosition: 95, yPosition: 89)
-          let phone = addText(text: phoneNumber, pageRect: pageRect, fontWeight: .regular, fontSize: 6, xPosition: 95, yPosition: 102)
-        let photoLeft = addUserPhoto(pageRect: pageRect, imageTop: name + 30)
+          addText(text: ocupation, pageRect: pageRect, fontWeight: .regular, fontSize: 10, xPosition: 95, yPosition: 71)
+          addText(text: email, pageRect: pageRect, fontWeight: .regular, fontSize: 6, xPosition: 95, yPosition: 89)
+          addText(text: phoneNumber, pageRect: pageRect, fontWeight: .regular, fontSize: 6, xPosition: 95, yPosition: 102)
+        addUserPhoto(pageRect: pageRect, imageTop: name + 30)
        
 
       }
@@ -110,7 +110,7 @@ class PDFCreator {
         //let photoX = (pageRect.width - scaledWidth) / 2.0
         
         
-        let photoRect = CGRect(x: 16, y: 36,
+        let photoRect = CGRect(x: 16, y: 30,
                                  width: scaledWidth, height: scaledHeight)
         
         
