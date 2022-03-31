@@ -14,15 +14,15 @@ class PDFCreator {
     let title: String
     let image = UIImage(named: "backgroundImage")
     let userPhoto: UIImage
-    let surname: String
+    let ocupation: String
 //    let body: String
 //    let image: UIImage
 //    let contactInfo: String
 
-    init(title: String, userPhoto: UIImage, surname: String) {
+    init(title: String, userPhoto: UIImage, ocupation: String) {
       self.title = title
         self.userPhoto = userPhoto
-        self.surname = surname
+        self.ocupation = ocupation
 //      self.body = body
 //      self.image = image
 //      self.contactInfo = contact
@@ -148,16 +148,16 @@ class PDFCreator {
         return photoRect.origin.y + photoRect.size.height
     }
     
-//    func addSurname (pageRect: CGRect) -> CGFloat {
-//        let surnameFont = UIFont.systemFont(ofSize: 10, weight: .regular)
-//        
-//        let surnameAttributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: surnameFont]
-//        
-////        let surnameAttributes = NSAttributedString(
-////        string: surname,
-////        attributes: surnameAttributes
-////        )
-//    }
+    func addJob (pageRect: CGRect) -> CGFloat {
+        let surnameFont = UIFont.systemFont(ofSize: 10, weight: .regular)
+        
+        let surnameAttributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: surnameFont]
+        
+//        let surnameAttributes = NSAttributedString(
+//        string: surname,
+//        attributes: surnameAttributes
+//        )
+    }
 
     
 }
