@@ -25,7 +25,7 @@ struct CardView: View {
 		
 		NavigationView {
 			ScrollView {
-				if let image = image ?? UIImage(named: "UserPicture") {
+				if let image = image ?? UIImage(named: "PlaceHolder2") {
 					Image(uiImage: image)
 						.resizable()
 						.scaledToFill()
@@ -33,8 +33,29 @@ struct CardView: View {
 						.clipShape(Circle())
 						.shadow(radius: 10)
 						.overlay(Circle().stroke(Color(uiColor: .systemGray), lineWidth: 0.3))
+						.onTapGesture {
+							self.showSheet = true
+						}
 				}
 				Group{
+					Button("Choose Picture") {
+						self.showSheet = true
+					}.padding(5)
+						.actionSheet(isPresented: $showSheet) {
+							ActionSheet(title: Text("Select Photo"), message: Text("Choose"), buttons: [
+								.default(Text("Photo Library")) {
+									self.showImagePicker = true
+									self.sourceType = .photoLibrary
+								},
+								.default(Text("Camera")) {
+									self.showImagePicker = true
+									self.sourceType = .camera
+									
+								},
+								.cancel()
+							])
+						}
+						.foregroundColor(Color(uiColor: .systemBlue))
 					HStack {
 						Text("Name and Surname")
 							.fontWeight(.medium)
@@ -68,24 +89,7 @@ struct CardView: View {
 						.textFieldStyle(.roundedBorder)
 				}.padding(.horizontal)
 				
-				Button("Choose Picture") {
-					self.showSheet = true
-				}.padding()
-					.actionSheet(isPresented: $showSheet) {
-						ActionSheet(title: Text("Select Photo"), message: Text("Choose"), buttons: [
-							.default(Text("Photo Library")) {
-								self.showImagePicker = true
-								self.sourceType = .photoLibrary
-							},
-							.default(Text("Camera")) {
-								self.showImagePicker = true
-								self.sourceType = .camera
-								
-							},
-							.cancel()
-						])
-					}
-					.foregroundColor(Color(uiColor: .systemBlue))
+				
 				
                     NavigationLink {
                         let pdfCreator = PDFCreator(name: name,

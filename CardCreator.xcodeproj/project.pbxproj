@@ -287,7 +287,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CardCreator/Preview Content\"";
-				DEVELOPMENT_TEAM = WK692DVRUX;
+				DEVELOPMENT_TEAM = 6N777LA6M4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs camera for works properly!";
@@ -318,7 +318,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CardCreator/Preview Content\"";
-				DEVELOPMENT_TEAM = WK692DVRUX;
+				DEVELOPMENT_TEAM = 6N777LA6M4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs camera for works properly!";
