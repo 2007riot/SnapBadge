@@ -13,12 +13,14 @@ class PDFCreator {
 
     let title: String
     let image = UIImage(named: "backgroundImage")
+    let userPhoto: UIImage
 //    let body: String
 //    let image: UIImage
 //    let contactInfo: String
 
-    init(title: String) {
+    init(title: String, userPhoto: UIImage) {
       self.title = title
+        self.userPhoto = userPhoto
 //      self.body = body
 //      self.image = image
 //      self.contactInfo = contact
@@ -53,7 +55,8 @@ class PDFCreator {
   //      let text = "Ураааа!"
   //      text.draw(at: CGPoint(x: 0, y: 0), withAttributes: attributes)
         let titleBottom = addTitle(pageRect: pageRect)
-        let imageBottom = addImage(pageRect: pageRect, imageTop: titleBottom + 18.0)
+//        let imageBottom = addImage(pageRect: pageRect, imageTop: titleBottom + 18.0)
+        let photoLeft = addUserPhoto(pageRect: pageRect, imageTop: titleBottom + 30)
        
 
       }
@@ -62,8 +65,8 @@ class PDFCreator {
     }
     
     func addTitle(pageRect: CGRect) -> CGFloat {
-      // 1
-      let titleFont = UIFont.systemFont(ofSize: 18.0, weight: .bold)
+      
+        let titleFont = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
       // 2
       let titleAttributes: [NSAttributedString.Key: Any] =
         [NSAttributedString.Key.font: titleFont]
@@ -72,12 +75,13 @@ class PDFCreator {
         string: title,
         attributes: titleAttributes
       )
-      // 4
+      
       let titleStringSize = attributedTitle.size()
-      // 5
+        // create rectangle
       let titleStringRect = CGRect(
-        x: (pageRect.width - titleStringSize.width) / 2.0,
-        y: 36,
+        //x: (pageRect.width - titleStringSize.width) / 2.0,
+        x: 95,
+        y: 48,
         width: titleStringSize.width,
         height: titleStringSize.height
       )
@@ -88,9 +92,9 @@ class PDFCreator {
     }
     
     func addImage(pageRect: CGRect, imageTop: CGFloat) -> CGFloat {
-      // 1
-        let maxHeight = pageRect.height * 0.7
-      let maxWidth = pageRect.width * 0.7
+      
+        let maxHeight = pageRect.height
+      let maxWidth = pageRect.width
       // 2
         if let imageUnwrapped = image {
       let aspectWidth = maxWidth / imageUnwrapped.size.width
@@ -111,6 +115,29 @@ class PDFCreator {
             return 0
         }
       
+    }
+    
+    func addUserPhoto (pageRect: CGRect, imageTop: CGFloat) -> CGFloat {
+        //let maxHeight = pageRect.height * 0.4
+        let maxHeight = CGFloat (60)
+        //let maxWidth = pageRect.width * 0.23
+        let maxWidth = CGFloat (60)
+        
+        let aspectWidth = maxWidth / userPhoto.size.width
+        let aspectHeight = maxHeight / userPhoto.size.height
+        let aspectRatio = min(aspectWidth, aspectHeight)
+        
+        let scaledWidth = userPhoto.size.width * aspectRatio
+        let scaledHeight = userPhoto.size.height * aspectRatio
+        
+        //let photoX = (pageRect.width - scaledWidth) / 2.0
+        let photoX = 16
+        let photoRect = CGRect(x: CGFloat(photoX), y: 36,
+                                 width: scaledWidth, height: scaledHeight)
+        
+        userPhoto.draw(in: photoRect)
+        
+        return photoRect.origin.y + photoRect.size.height
     }
 
     

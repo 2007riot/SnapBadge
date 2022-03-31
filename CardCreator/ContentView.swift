@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var text = ""
     @State var showPDF = false
     @StateObject var pdfData = PDFData()
   
@@ -24,7 +23,7 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: $showPDF) {
-            let pdfCreator = PDFCreator(title: pdfData.name)
+            let pdfCreator = PDFCreator(title: pdfData.name, userPhoto: UIImage(named: "UserPicture")!)
             if let data = pdfCreator.createFlyer() {
                 PDFPresenter(data: data)
             }

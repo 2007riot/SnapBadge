@@ -11,11 +11,12 @@ import PDFKit
 struct PDFPresenter: UIViewRepresentable {
     let data: Data
     
+    
     func makeUIView(context: Context) -> PDFView {
         let pdfview = PDFView()
         let document = PDFDocument(data: data)
         pdfview.document = document
-        pdfview.autoScales = true
+        pdfview.autoScales = false
         
         
 
