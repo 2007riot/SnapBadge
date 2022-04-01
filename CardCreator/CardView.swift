@@ -63,7 +63,7 @@ struct CardView: View {
 								.cancel()
 							])
 						}
-						.foregroundColor(Color(uiColor: .systemBlue))
+						.foregroundColor((Color(uiColor: .blueColor)))
                    
 					HStack {
 						Text("Name and Surname")
@@ -135,8 +135,9 @@ struct CardView: View {
                             .fontWeight(.medium)
                             .font(.system(size: 18))
                             .frame(width: 140, height: 40)
-                            .foregroundColor(Color.white)
-                            .background(Color(uiColor: .systemBlue))
+                            .foregroundColor(.white)
+                            
+                            .background((Color(uiColor: .blueColor)))
                             .clipShape(RoundedRectangle(cornerRadius: 12.0))
                     }
                     }

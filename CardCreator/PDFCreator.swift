@@ -149,7 +149,7 @@ class PDFCreator {
         let font = UIFont.systemFont(ofSize: fontSize, weight: fontWeight)
 //        let color = UIColor(red: 12, green: 89, blue: 162, alpha: 0)
 //        let color = UIColor(
-        let color: UIColor = .brown
+        let color: UIColor = UIColor.blueColor
         
         let attributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: font, NSAttributedString.Key.foregroundColor: color]
         
@@ -177,8 +177,8 @@ class PDFCreator {
     func addText(text: String, pageRect: CGRect, fontWeight: UIFont.Weight, fontSize: CGFloat, xPosition: CGFloat, yPosition: CGFloat) {
         
         let font = UIFont.systemFont(ofSize: fontSize, weight: fontWeight)
-        
-        let attributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: font]
+        let color: UIColor = UIColor.blueColor
+        let attributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: font, NSAttributedString.Key.foregroundColor: color]
         
         let attributedString = NSAttributedString(
             string: text,
