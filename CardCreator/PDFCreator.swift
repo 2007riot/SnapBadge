@@ -18,9 +18,6 @@ class PDFCreator {
     let email: String
     let phoneNumber: String
     
-//    let body: String
-//    let image: UIImage
-//    let contactInfo: String
 
     init(name: String, userPhoto: UIImage, ocupation: String, email: String, phoneNumber: String) {
       self.name = name
@@ -53,12 +50,12 @@ class PDFCreator {
         
         context.beginPage()
   
-          let name = addText(text: name, pageRect: pageRect, fontWeight: .bold, fontSize: 14, xPosition: 95, yPosition: 48)
+          let name = addUserName(text: name, pageRect: pageRect, fontWeight: .bold, fontSize: 14, xPosition: 95, yPosition: 48)
           addText(text: ocupation, pageRect: pageRect, fontWeight: .regular, fontSize: 10, xPosition: 95, yPosition: 65)
           addText(text: email, pageRect: pageRect, fontWeight: .regular, fontSize: 6, xPosition: 95, yPosition: 78)
           addText(text: phoneNumber, pageRect: pageRect, fontWeight: .regular, fontSize: 6, xPosition: 95, yPosition: 86)
-          addUserPhoto(pageRect: pageRect, imageTop: name + 50, xPosition: 16, yPosition: 42)
-          addImageWithoutScaling(image: createCircle(), pageRect: pageRect, xPosition: 16, yPosition: 42)
+          addUserPhoto(pageRect: pageRect, imageTop: name + 50, xPosition: 20, yPosition: 50)
+       //   addImageWithoutScaling(image: createCircle(), pageRect: pageRect, xPosition: 16, yPosition: 42)
 
       }
 
@@ -99,17 +96,9 @@ class PDFCreator {
         let rectangle = CGRect(x: 0, y: 0, width: 60, height: 60)
         let img = renderer.image { (context) in
             UIColor.green.setStroke()
-//            context.stroke(renderer.format.bounds)
-              //UIColor(colorLiteralRed: 158/255, green: 215/255, blue: 245/255, alpha: 1).setFill()
-             // context.fill(CGRect(x: 1, y: 1, width: 140, height: 140))
-            
-            
             context.cgContext.addEllipse(in: rectangle)
             context.cgContext.drawPath(using: .stroke)
-            
-           // context.fill(rectangle)
-           // userPhoto.draw(in: rectangle, blendMode: .darken, alpha: 1)
-            
+         
         }
         
         return img
@@ -122,7 +111,7 @@ class PDFCreator {
         image.draw(in: rectangle)
     }
     
-    func addUserPhoto (pageRect: CGRect, imageTop: CGFloat, xPosition: CGFloat, yPosition: CGFloat) -> CGFloat {
+    func addUserPhoto (pageRect: CGRect, imageTop: CGFloat, xPosition: CGFloat, yPosition: CGFloat) {
         
         //let maxHeight = pageRect.height * 0.4
         let maxHeight = pageRect.height * 0.4
@@ -153,12 +142,10 @@ class PDFCreator {
         userPhoto.draw(in: photoRect)
        // userPhoto.addEllipse(self: CGContext, in: photoRect)
         
-        return photoRect.origin.y + photoRect.size.height
+       // return photoRect.origin.y + photoRect.size.height
     }
     
-    
-    func addText(text: String, pageRect: CGRect, fontWeight: UIFont.Weight, fontSize: CGFloat, xPosition: CGFloat, yPosition: CGFloat) -> CGFloat {
-        
+    func addUserName(text: String, pageRect: CGRect, fontWeight: UIFont.Weight, fontSize: CGFloat, xPosition: CGFloat, yPosition: CGFloat) -> CGFloat {
         let font = UIFont.systemFont(ofSize: fontSize, weight: fontWeight)
         
         let attributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: font]
@@ -180,6 +167,31 @@ class PDFCreator {
         attributedString.draw(in: stringRect)
         
         return stringRect.origin.y + stringRect.size.height
+    }
+    
+    
+    func addText(text: String, pageRect: CGRect, fontWeight: UIFont.Weight, fontSize: CGFloat, xPosition: CGFloat, yPosition: CGFloat) {
+        
+        let font = UIFont.systemFont(ofSize: fontSize, weight: fontWeight)
+        
+        let attributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: font]
+        
+        let attributedString = NSAttributedString(
+            string: text,
+            attributes: attributes
+        )
+        
+        let stringSize = attributedString.size()
+        
+        let stringRect = CGRect(
+            x: xPosition,
+            y: yPosition,
+            width: stringSize.width,
+            height: stringSize.height
+          )
+        
+        attributedString.draw(in: stringRect)
+        
     }
 }
 

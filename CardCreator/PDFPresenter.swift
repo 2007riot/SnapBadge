@@ -18,14 +18,14 @@ struct PDFPresenter: UIViewRepresentable {
         pdfview.document = document
         pdfview.autoScales = true
         
-
+        
         return pdfview
-            }
+    }
     
     
     
     func updateUIView(_ uiView: PDFView, context: Context) {
-       
+        
         //
     }
     

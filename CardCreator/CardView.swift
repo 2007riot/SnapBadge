@@ -8,16 +8,24 @@
 import SwiftUI
 
 struct CardView: View {
-	
-	@State var name = ""
-	@State var occupation = ""
+    @State private var selection: Int? = nil
+	@State private var name = ""
+	@State private var occupation = ""
 	@State private var showSheet: Bool = false
 	@State private var showImagePicker: Bool = false
 	@State private var sourceType: UIImagePickerController.SourceType = .camera
 	@State private var image: UIImage?
     @State private var email = ""
     @State private var phonenumber = ""
+    @State private var showAlert = false
 	
+    var pdfCreator: PDFCreator {
+        PDFCreator(name: name,
+                userPhoto: image ?? UIImage(named: "PlaceHolder2")!,
+                ocupation: occupation,
+                email: email,
+                phoneNumber: phonenumber)
+    }
 	
     @State var pdfData: Data?
     
@@ -93,34 +101,68 @@ struct CardView: View {
 				
 				
 				
-                    NavigationLink {
-                        let pdfCreator = PDFCreator(name: name,
-                                                    userPhoto: image ?? UIImage(named: "PlaceHolder2")!,
-                                                    ocupation: occupation,
-                                                    email: email,
-                                                    phoneNumber: phonenumber)
+//                    NavigationLink {
+//                        let pdfCreator = PDFCreator(name: name,
+//                                                    userPhoto: image ?? UIImage(named: "PlaceHolder2")!,
+//                                                    ocupation: occupation,
+//                                                    email: email,
+//                                                    phoneNumber: phonenumber)
+//
+//                        PDFPreview(PDF: pdfCreator)
+//                    } label: {
+//                        Button {
+//                           showAlert = checkInfo()
+//                        } label: {
+//                            Text("Preview")
+//                                .fontWeight(.medium)
+//                                .font(.system(size: 18))
+//                                .frame(width: 140, height: 40)
+//                                .foregroundColor(Color.white)
+//                                .background(Color(uiColor: .systemBlue))
+//                                .clipShape(RoundedRectangle(cornerRadius: 12.0))
+//                        }
+                       
+                            
+//                    }
+                
+                NavigationLink(destination: PDFPreview(PDF: pdfCreator), tag: 1, selection: $selection) {
+                    Button(action: {
+                        self.selection = 1
+                        //self.showAlert = checkInfo()
                         
-                        PDFPreview(PDF: pdfCreator)
-                    } label: {
-                        Text("See PDF")
+                    }) {
+                        Text("Preview")
                             .fontWeight(.medium)
                             .font(.system(size: 18))
+                            .frame(width: 140, height: 40)
+                            .foregroundColor(Color.white)
+                            .background(Color(uiColor: .systemBlue))
+                            .clipShape(RoundedRectangle(cornerRadius: 12.0))
                     }
+                    }
+                    
                 
-	
-				.frame(width: 140, height: 40)
-				.foregroundColor(Color.white)
-				.background(Color(uiColor: .systemBlue))
-				.clipShape(RoundedRectangle(cornerRadius: 12.0))
-				
 			}
 			.navigationTitle("Business Card")
 		}
+        .alert("Pleaase provide all required information", isPresented: $showAlert) {
+            Button("OK", role: .cancel) { }
+        }
 		.fullScreenCover(isPresented: $showImagePicker) {
 			ImagePicker(image: $image, isShown: $showImagePicker, sourceType: sourceType)
 				.ignoresSafeArea(.container, edges: .vertical)
+        
 		}
 	}
+    
+    func checkInfo() -> Bool {
+        
+        if image == UIImage(named: "PlaceHolder2")! || name.isEmpty || email.isEmpty || phonenumber.isEmpty || occupation.isEmpty {
+            return true
+        } else {
+            return false
+        }
+    }
 }
 
 struct CardView_Previews: PreviewProvider {
