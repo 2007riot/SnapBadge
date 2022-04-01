@@ -72,7 +72,7 @@ class PDFCreator {
       let aspectWidth = maxWidth / imageUnwrapped.size.width
       let aspectHeight = maxHeight / imageUnwrapped.size.height
       let aspectRatio = min(aspectWidth, aspectHeight)
-      // 3
+      // 3u
       let scaledWidth = imageUnwrapped.size.width * aspectRatio
       let scaledHeight = imageUnwrapped.size.height * aspectRatio
       // 4
