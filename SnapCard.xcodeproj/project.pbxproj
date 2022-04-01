@@ -47,7 +47,7 @@
 		5C4B470227F45E97003584E5 = {
 			isa = PBXGroup;
 			children = (
-				5C4B470D27F45E97003584E5 /* CardCreator */,
+				5C4B470D27F45E97003584E5 /* SnapCard */,
 				5C4B470C27F45E97003584E5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -60,7 +60,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5C4B470D27F45E97003584E5 /* CardCreator */ = {
+		5C4B470D27F45E97003584E5 /* SnapCard */ = {
 			isa = PBXGroup;
 			children = (
 				5CC790C227F701AB00526CE0 /* ColorExtension.swift */,
@@ -74,7 +74,7 @@
 				5C4B471227F45E99003584E5 /* Assets.xcassets */,
 				5C4B471427F45E99003584E5 /* Preview Content */,
 			);
-			path = CardCreator;
+			path = SnapCard;
 			sourceTree = "<group>";
 		};
 		5C4B471427F45E99003584E5 /* Preview Content */ = {
@@ -88,9 +88,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5C4B470A27F45E97003584E5 /* CardCreator */ = {
+		5C4B470A27F45E97003584E5 /* SnapCard */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5C4B471927F45E99003584E5 /* Build configuration list for PBXNativeTarget "CardCreator" */;
+			buildConfigurationList = 5C4B471927F45E99003584E5 /* Build configuration list for PBXNativeTarget "SnapCard" */;
 			buildPhases = (
 				5C4B470727F45E97003584E5 /* Sources */,
 				5C4B470827F45E97003584E5 /* Frameworks */,
@@ -100,7 +100,7 @@
 			);
 			dependencies = (
 			);
-			name = CardCreator;
+			name = SnapCard;
 			productName = CardCreator;
 			productReference = 5C4B470B27F45E97003584E5 /* SnapCard.app */;
 			productType = "com.apple.product-type.application";
@@ -133,7 +133,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5C4B470A27F45E97003584E5 /* CardCreator */,
+				5C4B470A27F45E97003584E5 /* SnapCard */,
 			);
 		};
 /* End PBXProject section */
@@ -357,7 +357,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5C4B471927F45E99003584E5 /* Build configuration list for PBXNativeTarget "CardCreator" */ = {
+		5C4B471927F45E99003584E5 /* Build configuration list for PBXNativeTarget "SnapCard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5C4B471A27F45E99003584E5 /* Debug */,
