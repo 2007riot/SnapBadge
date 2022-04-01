@@ -126,21 +126,25 @@ struct CardView: View {
 //                    }
                 
                 NavigationLink(destination: PDFPreview(PDF: pdfCreator), tag: 1, selection: $selection) {
-                    Button(action: {
-                        self.selection = 1
-                        //self.showAlert = checkInfo()
-                        
-                    }) {
+//                    Button(action: {
+//                        self.selection = 1
+//                        //                        self.showAlert = checkInfo()
+//
+//                    }) {
                         Text("Preview")
                             .fontWeight(.medium)
                             .font(.system(size: 18))
                             .frame(width: 140, height: 40)
                             .foregroundColor(.white)
-                            
+                        
                             .background((Color(uiColor: .blueColor)))
                             .clipShape(RoundedRectangle(cornerRadius: 12.0))
-                    }
-                    }
+//                    }
+                }
+                .disabled(checkInfo())
+                .onTapGesture {
+                    showAlert = checkInfo()
+                }
                     
                 
 			}
@@ -157,12 +161,7 @@ struct CardView: View {
 	}
     
     func checkInfo() -> Bool {
-        
-        if image == UIImage(named: "PlaceHolder2")! || name.isEmpty || email.isEmpty || phonenumber.isEmpty || occupation.isEmpty {
-            return true
-        } else {
-            return false
-        }
+        image == nil || name.isEmpty || email.isEmpty || phonenumber.isEmpty || occupation.isEmpty
     }
 }
 
