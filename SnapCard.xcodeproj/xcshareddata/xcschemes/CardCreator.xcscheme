@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5C4B470A27F45E97003584E5"
-               BuildableName = "CardCreator.app"
+               BuildableName = "SnapCard.app"
                BlueprintName = "CardCreator"
                ReferencedContainer = "container:SnapCard.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5C4B470A27F45E97003584E5"
-            BuildableName = "CardCreator.app"
+            BuildableName = "SnapCard.app"
             BlueprintName = "CardCreator"
             ReferencedContainer = "container:SnapCard.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5C4B470A27F45E97003584E5"
-            BuildableName = "CardCreator.app"
+            BuildableName = "SnapCard.app"
             BlueprintName = "CardCreator"
             ReferencedContainer = "container:SnapCard.xcodeproj">
          </BuildableReference>
