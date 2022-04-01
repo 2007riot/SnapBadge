@@ -20,7 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5C4B470B27F45E97003584E5 /* SnapCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C4B470B27F45E97003584E5 /* Snap Card.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Snap Card.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C4B470E27F45E97003584E5 /* CardCreatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCreatorApp.swift; sourceTree = "<group>"; };
 		5C4B471227F45E99003584E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C4B471527F45E99003584E5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 		5C4B470C27F45E97003584E5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5C4B470B27F45E97003584E5 /* SnapCard.app */,
+				5C4B470B27F45E97003584E5 /* Snap Card.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -88,9 +88,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5C4B470A27F45E97003584E5 /* SnapCard */ = {
+		5C4B470A27F45E97003584E5 /* Snap Card */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5C4B471927F45E99003584E5 /* Build configuration list for PBXNativeTarget "SnapCard" */;
+			buildConfigurationList = 5C4B471927F45E99003584E5 /* Build configuration list for PBXNativeTarget "Snap Card" */;
 			buildPhases = (
 				5C4B470727F45E97003584E5 /* Sources */,
 				5C4B470827F45E97003584E5 /* Frameworks */,
@@ -100,9 +100,9 @@
 			);
 			dependencies = (
 			);
-			name = SnapCard;
+			name = "Snap Card";
 			productName = CardCreator;
-			productReference = 5C4B470B27F45E97003584E5 /* SnapCard.app */;
+			productReference = 5C4B470B27F45E97003584E5 /* Snap Card.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -120,7 +120,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5C4B470627F45E97003584E5 /* Build configuration list for PBXProject "SnapCard" */;
+			buildConfigurationList = 5C4B470627F45E97003584E5 /* Build configuration list for PBXProject "Snap Card" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -133,7 +133,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5C4B470A27F45E97003584E5 /* SnapCard */,
+				5C4B470A27F45E97003584E5 /* Snap Card */,
 			);
 		};
 /* End PBXProject section */
@@ -219,7 +219,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -273,7 +273,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -290,7 +290,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"CardCreator/Preview Content\"";
 				DEVELOPMENT_TEAM = 6N777LA6M4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -306,8 +305,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = galina.CardCreator;
-				PRODUCT_NAME = SnapCard;
+				PRODUCT_BUNDLE_IDENTIFIER = fatalError.SnapCard;
+				PRODUCT_NAME = "Snap Card";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -321,7 +320,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"CardCreator/Preview Content\"";
 				DEVELOPMENT_TEAM = 6N777LA6M4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -337,8 +335,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = galina.CardCreator;
-				PRODUCT_NAME = SnapCard;
+				PRODUCT_BUNDLE_IDENTIFIER = fatalError.SnapCard;
+				PRODUCT_NAME = "Snap Card";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -348,7 +346,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5C4B470627F45E97003584E5 /* Build configuration list for PBXProject "SnapCard" */ = {
+		5C4B470627F45E97003584E5 /* Build configuration list for PBXProject "Snap Card" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5C4B471727F45E99003584E5 /* Debug */,
@@ -357,7 +355,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5C4B471927F45E99003584E5 /* Build configuration list for PBXNativeTarget "SnapCard" */ = {
+		5C4B471927F45E99003584E5 /* Build configuration list for PBXNativeTarget "Snap Card" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5C4B471A27F45E99003584E5 /* Debug */,
