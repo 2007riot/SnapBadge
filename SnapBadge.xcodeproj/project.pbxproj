@@ -20,7 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5C4B470B27F45E97003584E5 /* Snap Card.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Snap Card.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C4B470B27F45E97003584E5 /* SnapBadge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapBadge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C4B470E27F45E97003584E5 /* CardCreatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCreatorApp.swift; sourceTree = "<group>"; };
 		5C4B471227F45E99003584E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C4B471527F45E99003584E5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 		5C4B470C27F45E97003584E5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5C4B470B27F45E97003584E5 /* Snap Card.app */,
+				5C4B470B27F45E97003584E5 /* SnapBadge.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -88,9 +88,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5C4B470A27F45E97003584E5 /* Snap Card */ = {
+		5C4B470A27F45E97003584E5 /* SnapBadge */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5C4B471927F45E99003584E5 /* Build configuration list for PBXNativeTarget "Snap Card" */;
+			buildConfigurationList = 5C4B471927F45E99003584E5 /* Build configuration list for PBXNativeTarget "SnapBadge" */;
 			buildPhases = (
 				5C4B470727F45E97003584E5 /* Sources */,
 				5C4B470827F45E97003584E5 /* Frameworks */,
@@ -100,9 +100,9 @@
 			);
 			dependencies = (
 			);
-			name = "Snap Card";
+			name = SnapBadge;
 			productName = CardCreator;
-			productReference = 5C4B470B27F45E97003584E5 /* Snap Card.app */;
+			productReference = 5C4B470B27F45E97003584E5 /* SnapBadge.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -120,7 +120,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5C4B470627F45E97003584E5 /* Build configuration list for PBXProject "Snap Card" */;
+			buildConfigurationList = 5C4B470627F45E97003584E5 /* Build configuration list for PBXProject "SnapBadge" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -133,7 +133,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5C4B470A27F45E97003584E5 /* Snap Card */,
+				5C4B470A27F45E97003584E5 /* SnapBadge */,
 			);
 		};
 /* End PBXProject section */
@@ -305,8 +305,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = fatalError.SnapCard;
-				PRODUCT_NAME = "Snap Card";
+				PRODUCT_BUNDLE_IDENTIFIER = fatalError.SnapBadge;
+				PRODUCT_NAME = SnapBadge;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -335,8 +335,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = fatalError.SnapCard;
-				PRODUCT_NAME = "Snap Card";
+				PRODUCT_BUNDLE_IDENTIFIER = fatalError.SnapBadge;
+				PRODUCT_NAME = SnapBadge;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -346,7 +346,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5C4B470627F45E97003584E5 /* Build configuration list for PBXProject "Snap Card" */ = {
+		5C4B470627F45E97003584E5 /* Build configuration list for PBXProject "SnapBadge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5C4B471727F45E99003584E5 /* Debug */,
@@ -355,7 +355,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5C4B471927F45E99003584E5 /* Build configuration list for PBXNativeTarget "Snap Card" */ = {
+		5C4B471927F45E99003584E5 /* Build configuration list for PBXNativeTarget "SnapBadge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5C4B471A27F45E99003584E5 /* Debug */,
