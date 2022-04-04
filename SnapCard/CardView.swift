@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CardView: View {
-    @State private var selection: Int? = nil
 	@State private var name = ""
 	@State private var occupation = ""
 	@State private var showSheet: Bool = false
@@ -98,48 +97,15 @@ struct CardView: View {
 					TextField("Enter contact number", text: $phonenumber)
 						.textFieldStyle(.roundedBorder)
 				}.padding(.horizontal)
-				
-				
-				
-//                    NavigationLink {
-//                        let pdfCreator = PDFCreator(name: name,
-//                                                    userPhoto: image ?? UIImage(named: "PlaceHolder2")!,
-//                                                    ocupation: occupation,
-//                                                    email: email,
-//                                                    phoneNumber: phonenumber)
-//
-//                        PDFPreview(PDF: pdfCreator)
-//                    } label: {
-//                        Button {
-//                           showAlert = checkInfo()
-//                        } label: {
-//                            Text("Preview")
-//                                .fontWeight(.medium)
-//                                .font(.system(size: 18))
-//                                .frame(width: 140, height: 40)
-//                                .foregroundColor(Color.white)
-//                                .background(Color(uiColor: .systemBlue))
-//                                .clipShape(RoundedRectangle(cornerRadius: 12.0))
-//                        }
-                       
-                            
-//                    }
                 
-                NavigationLink(destination: PDFPreview(PDF: pdfCreator), tag: 1, selection: $selection) {
-//                    Button(action: {
-//                        self.selection = 1
-//                        //                        self.showAlert = checkInfo()
-//
-//                    }) {
+                NavigationLink(destination: PDFPreview(PDF: pdfCreator)) {
                         Text("Preview")
                             .fontWeight(.medium)
                             .font(.system(size: 18))
                             .frame(width: 140, height: 40)
                             .foregroundColor(.white)
-                        
                             .background((Color(uiColor: .blueColor)))
                             .clipShape(RoundedRectangle(cornerRadius: 12.0))
-//                    }
                 }
                 .disabled(checkInfo())
                 .onTapGesture {
