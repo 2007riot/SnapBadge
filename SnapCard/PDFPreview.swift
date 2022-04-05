@@ -13,7 +13,7 @@ struct PDFPreview: View {
     @State var showingExporter = false
     
     var body: some View {
-        if let data = PDF?.createFlyer(){
+        if let data = PDF?.createBage(){
         NavigationView {
             PDFPresenter(data: data)
 
@@ -33,7 +33,7 @@ struct PDFPreview: View {
     }
         .sheet(isPresented: $showingExporter) {
  
-            if let data = PDF?.createFlyer() {
+            if let data = PDF?.createBage() {
                 ShareSheet(activityItems: [data])
             }
         }
