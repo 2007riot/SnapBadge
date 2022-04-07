@@ -1,6 +1,6 @@
 # SnapBadge
 
-With SnapBadge you can create your personal badge in Portable Document Format (PDF). 
+With SnapBadge you can create your personal business card in Portable Document Format (PDF). 
 
 <img width="300" alt="5" src="https://user-images.githubusercontent.com/73304608/161941376-f417cfcb-b21b-4286-93c8-ef1e9589369b.PNG">     <img width="300" alt="4" src="https://user-images.githubusercontent.com/73304608/161941661-98f60f02-9156-4d16-b380-ad1a045c4c91.PNG">
 
