@@ -116,7 +116,7 @@ struct CardView: View {
 			}
 			.navigationTitle("Business Card")
 		}
-        .alert("Pleaase provide all required information", isPresented: $showAlert) {
+        .alert("Please provide all required information", isPresented: $showAlert) {
             Button("OK", role: .cancel) { }
         }
 		.fullScreenCover(isPresented: $showImagePicker) {
