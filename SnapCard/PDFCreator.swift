@@ -65,27 +65,24 @@ class PDFCreator {
     func addImage(pageRect: CGRect, imageTop: CGFloat)  {
         
         let maxHeight = pageRect.height
+        
         let maxWidth = pageRect.width
-        // 2
         if let imageUnwrapped = image {
             let aspectWidth = maxWidth / imageUnwrapped.size.width
             let aspectHeight = maxHeight / imageUnwrapped.size.height
             let aspectRatio = min(aspectWidth, aspectHeight)
-            // 3u
+            
             let scaledWidth = imageUnwrapped.size.width * aspectRatio
             let scaledHeight = imageUnwrapped.size.height * aspectRatio
-            // 4
+            
             let imageX = (pageRect.width - scaledWidth) / 2.0
             let imageRect = CGRect(x: imageX, y: imageTop,
                                    width: scaledWidth, height: scaledHeight)
-            // 5
-            imageUnwrapped.draw(in: imageRect)
-            //imageUnwrapped.draw(in: T##CGRect)
             
-            //return imageRect.origin.y + imageRect.size.height
+            imageUnwrapped.draw(in: imageRect)
+            
         } else {
             print("No image found")
-            // return 0
         }
         
         
